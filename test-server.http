@@ -1,0 +1,36 @@
+### post data
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Slim Fit Cotton T-Shirt",
+    "category": "clothing",
+    "description": "A premium quality slim-fit cotton T-shirt, soft and breathable, perfect for everyday wear.",
+    "price": 2500,
+    "sizes": "S, M, L, XL, XXL",
+    "stock": 50,
+    "image_url": "https://example.com/images/slim-fit-tshirt.jpg"
+}
+
+### get all data
+GET http://localhost:3000/products
+
+### get one data
+GET http://localhost:3000/products/4
+
+### update data
+PUT http://localhost:3000/products/5
+Content-Type: application/json
+
+{
+    "name": "Premium Leather Sneakers",
+    "category": "clothing",
+    "description": "Stylish and comfortable leather sneakers with a cushioned sole for all-day wear.",
+    "price": 1522,
+    "sizes": "7, 8, 9, 10, 11",
+    "stock": 25,
+    "image_url": "https://example.com/images/leather-sneakers.jpg"
+}
+
+### delete a data
+DELETE http://localhost:3000/products/4
