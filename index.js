@@ -101,7 +101,7 @@ app.get("/products/:id", (req, res) => {
 app.put('/products/:id', (req, res) => {
     const { id } = req.params
     const { name, category, description, price, sizes, stock, image_url } = req.body
-    database.run('update products set name = ?, category = ?, description = ?, price = ?, sizes = ?, stock = ?, image_url = ? where id = ?', [name, category, description, price, sizes, stock, image_url, id], (err) => {
+    database.run('update products set name = ?, category = ?, description = ?, price = ?, sizes = ?, stock = ?, image_url = ? where id = ?', [name, category, description, price, sizes, stock, image_url, id], function(err) {
         if(err){
             res.status(500).json({
                 status: "failed",
@@ -123,7 +123,8 @@ app.put('/products/:id', (req, res) => {
 
 app.delete('/products/:id', (req, res) => {
     const { id } = req.params
-    database.run('delete from products where id = ?', [id], (err) => {
+    console.log(this);
+    database.run('delete from products where id = ?', [id], function(err) {
         if(err){
             res.status(500).json({ 
                 status: 'failed',
@@ -134,11 +135,13 @@ app.delete('/products/:id', (req, res) => {
                 status: "failed",
                 message: "product not found"
             })
+            console.log(this);
         }else{
             res.status(200).json({
                 status: "success",
                 message: "product deleted successfully"
             })
+            console.log(this);
         }
     })
 })
